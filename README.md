@@ -8,3 +8,8 @@ DSA journey
 {
     tried the amazon prep in the unstop
 }
+8-8-25
+{
+    added two pages into the website and completed the POD ,
+    plan is to complete the gfg 160 
+}
