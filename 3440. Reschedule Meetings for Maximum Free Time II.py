@@ -1,6 +1,6 @@
 # the idea of the problem is to get the gaps first such that events happening continuously was append as 0
 # get the max prefix gaps 
-#get the max suffix gaps
+#get the max suffix gaps  d
 # for each event get the sum of two elements in gaps_list and if the event is replaceable add its value also get the max  
 
 
