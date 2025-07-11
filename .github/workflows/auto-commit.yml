@@ -1,0 +1,25 @@
+name: Update Contribution
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Every day at 9 AM UTC
+  workflow_dispatch:
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Make a dummy commit
+        run: |
+          echo "Updated on $(date)" >> log.txt
+          git config --global user.name "Awake-ctrl"
+          git config --global user.email "kallepallysaikiran21@gmail.com"
+          git add log.txt
+          git commit -m "Auto-update contribution log" || echo "No changes to commit"
+          
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push
