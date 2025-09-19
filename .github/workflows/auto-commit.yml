@@ -12,14 +12,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true
 
       - name: Make a dummy commit
         run: |
+          touch log.txt
           echo "Updated on $(date)" >> log.txt
-          git config --global user.name "Awake-ctrl"
-          git config --global user.email "kallepallysaikiran21@gmail.com"
+          git config --local user.name "Awake-ctrl"
+          git config --local user.email "kallepallysaikiran21@gmail.com"
           git add log.txt
           git commit -m "Auto-update contribution log" || echo "No changes to commit"
-          
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git push
+          git push origin HEAD
